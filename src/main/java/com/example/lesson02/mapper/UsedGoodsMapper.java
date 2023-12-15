@@ -11,5 +11,5 @@ public interface UsedGoodsMapper { // interface여서 객체를 만들 수 없�
 
 	// (BO에게 받아오는) input: X
 	// (BO에게 줘야하는) output: List<UsedGoods>
-	public List<UsedGoods> selectUsedGoodsList();
+	public List<UsedGoods> selectUsedGoodsList(); // mybatis가 xml로 연결 시켜준다.
 }

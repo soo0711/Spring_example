@@ -2,14 +2,20 @@ package com.example.lesson02;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.lesson02.bo.UsedGoodsBO;
 import com.example.lesson02.domain.UsedGoods;
 
 @RestController
 public class Lesson02Ex01RestController {
 
+	// 필드
+	@Autowired // DI: 스프링 빈 주입
+	private UsedGoodsBO usedGoodsBO;
+	
 	// url: http://localhost:8008/lesson02/ex01
 	@RequestMapping("/lesson02/ex01")
 	// 왜 Map으로 안하고 usedGoods를 만드냐?
@@ -27,7 +33,6 @@ public class Lesson02Ex01RestController {
 	// 라고 한다.
 	
 	public List<UsedGoods> ex01(){
-		
-		return ; // response => JSON
+		return usedGoodsBO.getUsedGoodsList(); // response => JSON
 	}
 }
