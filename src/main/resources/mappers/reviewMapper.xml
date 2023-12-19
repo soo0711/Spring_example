@@ -20,4 +20,58 @@
  			`id` = #{id}
  	</select>
  	
+ 	<insert id="insertReview" parameterType="com.example.lesson03.domain.Review">
+ 		INSERT INTO `new_review`
+ 		(
+			`storeId`
+			,`menu`
+			,`userName`
+			,`point`
+			,`review`
+			,`createdAt`
+			,`updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			#{storeId}
+ 			, #{menu}
+ 			, #{userName}
+ 			, #{point}
+ 			, #{review}
+ 			, NOW()
+ 			, NOW()
+ 		)
+ 	</insert>
+ 	
+ 	<insert id="insertReviewAsField" parameterType="map">
+ 	INSERT INTO `new_review`
+ 	(
+		`storeId`
+		,`menu`
+		,`userName`
+		,`point`
+		,`review`
+		,`createdAt`
+		,`updatedAt`
+	)
+	VALUES
+	(
+		#{storeId}
+		, #{menu}
+		, #{userName}
+		, #{point}
+		, #{review}
+		, NOW()
+		, NOW()
+	)
+ 	</insert>
+ 	
+ 	<update id="updateReviewById" parameterType="map">
+ 	UPDATE `new_review`
+ 	SET 
+ 		`review` = #{review}
+ 		,`updatedAt` = NOW() <!-- 업데이트할 때는 시간도 바꿔줘야한다. -->
+ 	WHERE
+ 		`id` = #{id}
+ 	</update>
  </mapper>
