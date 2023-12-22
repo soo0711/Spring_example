@@ -20,7 +20,7 @@ public class StudentBO {
 	
 	// input: id
 	// output: X
-	public void getStudentById(int id) {
-		studentMapper.selectStudentById(id);
+	public Student getStudentById(int id) {
+		return studentMapper.selectStudentById(id);
 	}
 }

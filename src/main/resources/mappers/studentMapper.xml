@@ -27,7 +27,7 @@
  		)
  	</insert>
  	
- 	<select id="selectStudentById" parameterType="int">
+ 	<select id="selectStudentById" parameterType="int" resultType="com.example.lesson04.domain.Student">
 	 	SELECT
 	 		`id`
 	 		,`name`
