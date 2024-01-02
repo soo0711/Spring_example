@@ -76,19 +76,19 @@
             
             
          }); // click
-            // 회원가입 버튼 클릭
-            $('#addBtn').on("click", function(){
-            	// alert("click");
-            	
-            	// nameStutusArea에 아무 자식 태그가 없다면 가입 진행
-            	console.log($('#nameStatusArea').children());
-            	
-            	if ($('#nameStatusArea').children().length > 1){
-            		alert("회원가입 진행");
-            	} else {
-            		alert("회원가입 불가")
-            	}
-            });
+	    // 회원가입 버튼 클릭
+ 		$("#joinBtn").on('click', function() {
+ 			//alert("회원가입");
+ 			
+ 			// nameStatusArea에 아무 자식 태그가 없다면 가입 진행
+ 			console.log($('#nameStatusArea').children());
+ 			
+ 			if ($('#nameStatusArea').children().length < 1) {
+ 				alert("회원가입 진행");
+ 			} else {
+ 				alert("회원가입 불가");
+ 			}
+ 		});
       }); // document
    </script>
 </body>
