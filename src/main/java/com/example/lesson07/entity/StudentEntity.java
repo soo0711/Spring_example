@@ -21,7 +21,7 @@ import lombok.ToString;
 @NoArgsConstructor // 파리미터가 없는 생성자 만들기
 @Getter
 @Table(name = "new_student")
-@Builder // setter 대신에 사용
+@Builder(toBuilder = true) // setter 대신에 사용 (Builder만 있으면 초기 세팅만 가능), (toBuilder = true)는 필드값 변경 허용
 @Entity // '이 객체는 Entity다'라고 JPA에게 알려주는 annotation (JPA - DB)
 public class StudentEntity { // student_entity를 찾으려 하기 때문에 이건 table명이 아니라고 알려주기에 Table annotation을 붙인다.
 	

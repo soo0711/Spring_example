@@ -9,14 +9,14 @@ import com.example.lesson04.bo.StudentBO;
 import com.example.lesson07.entity.StudentEntity;
 
 @RestController
-@RequestMapping("/lesson07")
+@RequestMapping("/lesson07/ex01")
 public class Lesson07Ex01RestController {
 	
 	@Autowired
 	private StudentBO studentBO;
 	
 	// c: create
-	@GetMapping("/ex01/1")
+	@GetMapping("/1")
 	public StudentEntity create() {
 		String name = "김바다";
 		String phoneNumber = "010-1111-2222";
@@ -25,5 +25,23 @@ public class Lesson07Ex01RestController {
 		
 		// 방금 insert된 pk id도 바로 얻어낼 수 있다.
 		return studentBO.addStudent(name, phoneNumber, email, dreamJob);
+	}
+	
+	// u: update
+	@GetMapping("/2")
+	public StudentEntity update() {
+		// id가 5번인 dreamJob 변경
+		// input: 5, "디자이너"
+		
+		return studentBO.updateStudentDreamJobById(5, "디자이너");
+	}
+	
+	// d: delete
+	@GetMapping("/3")
+	public String delete() {
+		// id: 6 삭제
+		studentBO.deleteStudentById(6);
+		
+		return "삭제 완료";
 	}
 }
