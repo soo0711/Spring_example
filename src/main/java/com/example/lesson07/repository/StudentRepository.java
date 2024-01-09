@@ -3,6 +3,8 @@ package com.example.lesson07.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.example.lesson07.entity.StudentEntity;
 
@@ -43,6 +45,13 @@ public interface StudentRepository extends JpaRepository<StudentEntity, Integer>
 	public List<StudentEntity> findByNameStartingWith(String name);
 	// 9)
 	public List<StudentEntity> findByIdBetween(int startId, int endId);
+	
+	
+	// ex02/2 - JPQL(Entity에 조회)
+	// @Query(value = "select st from StudentEntity st where st.dreamJob =:dreamJob") // JPQL(엔티티 조회)
+	// =:은 모두 다 붙여서 써야지 에러가 안 난다.
+	@Query(value = "select * from new_student where dreamJob =:dreamJob", nativeQuery = true) // nativeQuery는 SQL문 조회
+	public List<StudentEntity> findByDreamJob(@Param("dreamJob") String dreamJob);
 	
 	
 	
